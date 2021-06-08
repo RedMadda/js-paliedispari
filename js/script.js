@@ -24,16 +24,19 @@ function checkPal(word) {
     // L’utente sceglie pari o dispari 
     var paDi = prompt("Scegli se pari (p), o dispari (d)").toLowerCase();
     
+    
+    // var semaforo = true;
     if (paDi == "pari" || paDi == "p"){
         paDi = "pari"
     }else if (paDi == "dispari"||  paDi == "d"){
         paDi = "dispari"
-    } else {
-        var i = 0;
-        while (paDi != "dispari" && paDi != "pari"){
-        paDi = prompt("Attenzione, devi scegliere 'p' per pari o 'd' per dispari!");
-        i++;
-        }
+     } else {
+         var i = 0;
+        while ( paDi != "pari" && paDi != "dispari" && paDi != "p" && paDi != "d"){
+             paDi = prompt("Attenzione! Devi inserire 'p' per 'pari' e 'd' per 'dispari'! Riprova.")
+            //  semaforo = false;
+             i++;
+         }
     }
     document.getElementById("stampa").innerHTML = "Hai scelto: " + paDi + ";" + "</br>";
 
