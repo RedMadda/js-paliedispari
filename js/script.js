@@ -29,8 +29,11 @@ function checkPal(word) {
     }else if (paDi == "dispari"||  paDi == "d"){
         paDi = "dispari"
     } else {
-        alert("Attenzione, devi scegliere 'p' per pari o 'd' per dispari!");
-        paDi = prompt("Scegli se pari (p), o dispari (d)");
+        var i = 0;
+        while (paDi != "dispari" && paDi != "pari"){
+        paDi = prompt("Attenzione, devi scegliere 'p' per pari o 'd' per dispari!");
+        i++;
+        }
     }
     document.getElementById("stampa").innerHTML = "Hai scelto: " + paDi + ";" + "</br>";
 
@@ -52,13 +55,20 @@ function checkPal(word) {
     // Sommiamo i due numeri.
     var add = somma(numPc, numUtente);
 
-    document.getElementById("stampa").innerHTML += "La somma è uguale a: " + add + "</br>";
-
-    // Stabiliamo se la somma dei due numeri è pari o dispari (usando una funzione) Dichiariamo chi ha vinto.
+    // Stabiliamo se la somma dei due numeri è pari o dispari (usando una funzione) 
     if(add % 2 == 0){
-
+        checkPd = "pari";
+    } else{
+        checkPd = "dispari";
     }
+    document.getElementById("stampa").innerHTML += "La somma è " + checkPd + ", uguale a: " + add + "</br>";
 
+    // Dichiariamo chi ha vinto.
+    if (paDi == checkPd){
+        document.getElementById("stampa").innerHTML += "Hai vinto!!!";
+    } else {
+        document.getElementById("stampa").innerHTML += "Mi dispiace, hai perso.";
+    }
     // funzioni
 
     function numRandom(min, max) {
